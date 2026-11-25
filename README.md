@@ -120,11 +120,28 @@ Config file: `BepInEx/config/graveyardorbit.ambusher.cfg`
 | `CloakEffect` | `trail` | `trail`, `ripple`, `mirage`, `glass`, `shimmer`, `off` |
 | `TrailAlpha` / `TrailTime` / `TrailWidthHex` | 0.14 / 0.35 / 0.18 | Wake trail look |
 | `CarriersVisibleAtStart` | true | Reveal seeded carriers at sortie start |
-| `Hotkey` | F10 | Spawn a debug carrier ahead of the ship |
+| `CarrierOnSortie` | false | Spawn one carrier automatically at sortie start |
+| `DronesOnSortie` | 0 | Spawn N drones immediately at sortie start |
+| `HotkeyEnabled` | false | Enables the F10 debug carrier spawn |
+| `Hotkey` | F10 | Key used when `HotkeyEnabled` is true |
 
 `ripple` is the game's full-screen `SpaceTimeRipple` effect — spectacular, but
 global. The localized `trail` is the default. Details are in
 `docs/SPACETIME_RIPPLE.md`.
+
+## Testing / debug spawn
+
+The debug carrier hotkey is **off by default** in 0.1.1. To enable it:
+
+1. Open `BepInEx/config/graveyardorbit.ambusher.cfg`.
+2. Under `[Debug]`, set:
+   ```ini
+   HotkeyEnabled = true
+   Hotkey = F10
+   ```
+3. Press F10 in a sortie to spawn a real carrier 24 hexes ahead of the ship.
+
+`CarrierOnSortie = true` and `DronesOnSortie = N` are alternative debug spawns, also under `[Debug]`.
 
 ## Logs
 

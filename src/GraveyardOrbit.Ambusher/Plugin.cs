@@ -11,7 +11,7 @@ namespace GraveyardOrbit.Ambusher
     {
         public const string PluginGuid = "graveyardorbit.ambusher";
         public const string PluginName = "Graveyard Orbit Ambusher (prototype)";
-        public const string PluginVersion = "0.1.0";
+        public const string PluginVersion = "0.1.1";
 
         internal static Plugin Instance { get; private set; }
         internal static BepInEx.Logging.ManualLogSource Log { get; private set; }
@@ -52,8 +52,8 @@ namespace GraveyardOrbit.Ambusher
             Instance = this;
             Log = Logger;
 
-            DebugHotkeyEnabled = Config.Bind("Debug", "HotkeyEnabled", true,
-                "Enable the debug spawn hotkey.");
+            DebugHotkeyEnabled = Config.Bind("Debug", "HotkeyEnabled", false,
+                "Enable the debug spawn hotkey (off by default).");
             DebugHotkey = Config.Bind("Debug", "Hotkey", new KeyboardShortcut(KeyCode.F10),
                 "Spawn a real ambusher carrier ahead of the ship.");
             DebugCarrierOnSortie = Config.Bind("Debug", "CarrierOnSortie", false,

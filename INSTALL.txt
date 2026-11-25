@@ -1,4 +1,4 @@
-GRAVEYARD ORBIT AMBUSHER (0.1.0)
+GRAVEYARD ORBIT AMBUSHER (0.1.1)
 ================================
 
 WHAT THIS IS
@@ -48,6 +48,14 @@ WHERE IT APPEARS
   EnemyManager turrets: they appear at sortie start, have health bars, and can
   be destroyed. Killing a carrier does not remove drones it already spawned;
   the contract win is held until every ambusher drone is gone.
+
+TESTING / DEBUG SPAWN
+  The F10 debug carrier hotkey is off by default. To enable it, open
+  BepInEx/config/graveyardorbit.ambusher.cfg and set, under [Debug]:
+      HotkeyEnabled = true
+      Hotkey = F10
+  Press F10 in a sortie to spawn a real carrier 24 hexes ahead of the ship.
+  CarrierOnSortie = true and DronesOnSortie = N are alternative debug spawns.
 
 CONFIG
   BepInEx/config/graveyardorbit.ambusher.cfg

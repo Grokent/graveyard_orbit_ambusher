@@ -62,7 +62,7 @@ CloakedHunt ──(at ring, or 10 s)──> Fire (uncloak + lob) ──> Windup 
   `ShipController.OnEnemyHit`.
 - **Director:** created from a `MiningSortie.Start` postfix, parented to the
   sortie so it dies with the scene. Holds the drone/carrier lists.
-- **Debug spawns:** F10 spawns a carrier 24 hexes ahead (`CarrierDistanceHex`);
+- **Debug spawns:** F10 (disabled by default; `HotkeyEnabled`) spawns a carrier 24 hexes ahead (`CarrierDistanceHex`);
   config can spawn a carrier or N drones at sortie start. The carrier is a fixed
   sphere with a 1.1 s timer and 7-live cap.
 - **Hull avoidance:** while repositioning in `Hunt`, if the drone is within 3
