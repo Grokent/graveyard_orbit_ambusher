@@ -5,8 +5,6 @@ stationary carrier turret that spawns fast, cloaked drones. The drones circle
 behind the player, uncloak, fire a lead-corrected flaming lob, telegraph a
 lunge, and disappear into a faint wake before re-engaging.
 
-It does not require the co-op mod or Custom Maps. It works alongside them.
-
 ## ⚠️ Disclaimer
 
 This project is **100% vibe coded** and **100% the product of AI use**. It is an
