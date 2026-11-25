@@ -1,0 +1,4 @@
+{
+  "_doc": "Copy to <plugin>/ambusher_contracts.json. Keys are contract ids; inner keys are layer numbers 1-5; values are carrier counts. Use default or * for all unlisted contracts.",
+  "my_custom_map": { "1": 4, "3": 1 }
+}

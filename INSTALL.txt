@@ -1,0 +1,86 @@
+GRAVEYARD ORBIT AMBUSHER (0.1.0)
+================================
+
+WHAT THIS IS
+  A standalone BepInEx plugin that adds a new enemy to Graveyard Orbit: a
+  stationary carrier turret that spawns cloaked, fast drones. The drones circle
+  behind the player, uncloak, fire a flaming lob, then telegraph, lunge away and
+  re-engage.
+
+DISCLAIMER
+  This mod is 100% vibe coded and 100% the product of AI use. It is an
+  unofficial fan project. I make no claims of ownership over Graveyard Orbit
+  or anything derived from it. All credit and all rights belong to Anchorhead
+  Games. No game code or game asset files are redistributed here.
+
+REQUIREMENTS
+  - Windows 10/11, or Linux / Steam Deck (Proton)
+  - Graveyard Orbit installed through Steam (AppID 4654120)
+
+INSTALL (SAME ON WINDOWS AND LINUX)
+  1. Close Graveyard Orbit.
+  2. In Steam, right-click Graveyard Orbit > Manage > Browse local files.
+     That opens the game folder (the one containing GraveyardOrbit.exe).
+  3. Download the latest release zip:
+       https://github.com/Grokent/graveyard_orbit_ambusher/releases/latest
+  4. Extract EVERYTHING from the zip into the game folder that opened in step 2.
+     It only adds files; nothing in the original game is replaced:
+       winhttp.dll
+       doorstop_config.ini
+       .doorstop_version
+       changelog.txt
+       BepInEx/...
+  5. Linux / Steam Deck (Proton) ONLY: add this launch option once
+     (game > Properties > Launch Options):
+       WINEDLLOVERRIDES="winhttp=n,b" %command%
+     Windows needs no launch options.
+  6. Launch the game through Steam normally.
+
+WHERE IT APPEARS
+  The plugin injects its carrier behaviour at runtime and auto-seeds carriers
+  into base-game, custom and downloaded contracts by map size:
+    10k cells  -> 1 carrier
+    25k cells  -> 3 carriers
+    50k cells  -> 5 carriers
+    100k cells -> 10 carriers
+    (capped at 12 by default)
+  One carrier is seeded on layer 1 per density step. Carriers are real
+  EnemyManager turrets: they appear at sortie start, have health bars, and can
+  be destroyed. Killing a carrier does not remove drones it already spawned;
+  the contract win is held until every ambusher drone is gone.
+
+CONFIG
+  BepInEx/config/graveyardorbit.ambusher.cfg
+  Useful knobs:
+    - AutoSeedUnlisted / CellsPerCarrier / MinCarriers / MaxCarriers
+    - CarrierMaxLive, LobDamage, LobSpeedPx
+    - HuntTimeoutSeconds, HuntSpeedPx
+    - WindupSeconds, CarrierHp
+    - CloakEffect (trail by default; ripple/mirage/glass/shimmer/off)
+    - TrailAlpha, TrailTime, TrailWidthHex
+    - F10 debug carrier hotkey and CarrierDistanceHex
+
+MAP AUTHORS
+  Authored maps can place carriers directly with alt = 16.
+  For per-contract overrides, edit
+  BepInEx/plugins/GraveyardOrbit.Ambusher/ambusher_contracts.json:
+    {
+      "my_map_id": { "1": 4, "3": 1 },
+      "default": { "1": 2 }
+    }
+  A listed contract uses those layer/count pairs. "default" or "*" overrides
+  auto-density for every unlisted contract.
+
+LOGS
+  BepInEx/LogOutput.log
+  Look for: [ambusher] director created / seeded / carrier HP set / drone spawned
+
+UNINSTALL
+  Delete BepInEx/plugins/GraveyardOrbit.Ambusher/
+  Remove winhttp.dll, doorstop_config.ini, .doorstop_version, changelog.txt and
+  BepInEx/ only if you do not use any other BepInEx mod.
+
+NOTE
+  BepInEx injects through winhttp.dll. Some antivirus tools may flag it as a
+  false positive; that file is part of the standard BepInEx mod loader.
+  Graveyard Orbit and all related content belong to Anchorhead Games.

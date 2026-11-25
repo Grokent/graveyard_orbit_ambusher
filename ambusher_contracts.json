@@ -1,0 +1,3 @@
+{
+  "_doc": "Optional per-contract overrides: contract id -> { layer: carrierCount }. Unlisted contracts auto-seed by density. Use \"default\" or \"*\" for all unlisted contracts."
+}
