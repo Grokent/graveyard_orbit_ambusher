@@ -3,7 +3,8 @@
 A standalone BepInEx plugin that adds a new enemy to **Graveyard Orbit**: a
 stationary carrier turret that spawns fast, cloaked drones. The drones circle
 behind the player, uncloak, fire a lead-corrected flaming lob, telegraph a
-lunge, and disappear into a faint wake before re-engaging.
+lunge, and disappear into a faint wake before re-engaging. The first rule of
+space warfare is that there is no stealth in space (shoutout Isaac Arthur).
 
 ## ⚠️ Disclaimer
 
